@@ -1,0 +1,3 @@
+# This directory is intentionally empty.
+# PORO test files have been removed.
+# The gem is now Rails-only - see spec/models/ for ActiveRecord tests.

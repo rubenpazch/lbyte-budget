@@ -1,0 +1,52 @@
+# RuboCop configuration for Budget gem
+
+AllCops:
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
+    - 'spec/dummy/**/*'
+
+# Metrics
+Metrics/ClassLength:
+  Max: 150
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/BlockLength:
+  Max: 25
+  Exclude:
+    - 'spec/**/*'
+    - 'config/routes.rb'
+    - '**/*.gemspec'
+
+Metrics/MethodLength:
+  Max: 15
+  CountAsOne: ['array', 'hash', 'heredoc']
+  Exclude:
+    - 'db/migrate/*'
+  AllowedMethods: ['to_s', 'summary', 'create_quote']
+
+Metrics/AbcSize:
+  Max: 20
+  CountRepeatedAttributes: false
+  AllowedMethods: ['to_s']
+
+# Layout
+Layout/LineLength:
+  Max: 120
+  AllowedPatterns: ['\A#'] # Allow long comments
+
+# Style
+Style/Documentation:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'
+    - 'db/migrate/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: true

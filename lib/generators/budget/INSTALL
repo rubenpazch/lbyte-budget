@@ -1,0 +1,46 @@
+===============================================================================
+
+Budget Engine has been installed!
+
+Next steps:
+
+1. Run the migrations:
+
+   $ rails db:migrate
+
+2. Start using Budget in your Rails app:
+
+   # Create a new quote
+   quote = Budget::Quote.create!(
+     customer_name: "María González",
+     customer_contact: "555-1234"
+   )
+
+   # Add line items
+   quote.add_line_item(
+     description: "Lentes progresivos",
+     price: 150.00,
+     category: "lente"
+   )
+
+   # Add payment
+   quote.add_payment(
+     amount: 75.00,
+     payment_method: "efectivo",
+     notes: "Adelanto 50%"
+   )
+
+   # Check status
+   quote.total              # => 150.0
+   quote.total_paid         # => 75.0
+   quote.remaining_balance  # => 75.0
+   quote.fully_paid?        # => false
+
+3. View the quote:
+
+   puts quote  # Formatted output
+
+For more information, visit:
+https://github.com/rubenpazch/budget
+
+===============================================================================

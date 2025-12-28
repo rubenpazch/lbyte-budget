@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Script to run tests with coverage report
+
+echo "================================================"
+echo "Running Budget Gem Test Suite with Coverage"
+echo "================================================"
+echo ""
+
+# Install dependencies if needed
+if ! bundle check > /dev/null 2>&1; then
+  echo "Installing dependencies..."
+  bundle install
+  echo ""
+fi
+
+# Run tests
+echo "Running tests..."
+bundle exec rspec --format documentation
+
+# Check exit code
+if [ $? -eq 0 ]; then
+  echo ""
+  echo "================================================"
+  echo "✅ All tests passed!"
+  echo "================================================"
+  echo ""
+  echo "Coverage report generated in: coverage/index.html"
+  echo "Run 'open coverage/index.html' to view the report"
+else
+  echo ""
+  echo "================================================"
+  echo "❌ Tests failed!"
+  echo "================================================"
+  exit 1
+fi
