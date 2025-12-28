@@ -3,7 +3,7 @@
 require_relative 'lib/budget/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'budget-quotes'
+  spec.name = 'lbyte-budget'
   spec.version = Budget::VERSION
   spec.authors = ['Ruben Paz Chuspe']
   spec.email = ['ruben.paz@bairesdev.com']
@@ -11,14 +11,14 @@ Gem::Specification.new do |spec|
   spec.summary = 'Budget and quote management system for businesses with advance payments'
   spec.description = 'A Ruby gem for managing quotes/budgets for eyeglasses businesses (or any business ' \
                      'with advance payments). Track line items, payments, and remaining balances.'
-  spec.homepage = 'https://github.com/rubenpazch/budget'
+  spec.homepage = 'https://github.com/rubenpazch/lbyte-budget'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.2.0'
 
   spec.metadata['allowed_push_host'] = 'https://rubygems.org'
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/rubenpazch/budget'
-  spec.metadata['changelog_uri'] = 'https://github.com/rubenpazch/budget/blob/main/CHANGELOG.md'
+  spec.metadata['source_code_uri'] = 'https://github.com/rubenpazch/lbyte-budget'
+  spec.metadata['changelog_uri'] = 'https://github.com/rubenpazch/lbyte-budget/blob/main/CHANGELOG.md'
   spec.metadata['rubygems_mfa_required'] = 'true'
 
   # Specify which files should be added to the gem when it is released.

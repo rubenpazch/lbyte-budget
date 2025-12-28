@@ -507,4 +507,4 @@ See **API_DOCUMENTATION.md** for complete API reference with request/response ex
 ## Support
 
 For issues or questions, visit:
-https://github.com/rubenpazch/budget
+https://github.com/rubenpazch/lbyte-budget
