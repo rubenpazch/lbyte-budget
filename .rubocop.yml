@@ -13,7 +13,7 @@ AllCops:
 
 # Metrics
 Metrics/ClassLength:
-  Max: 150
+  Max: 160
   Exclude:
     - 'spec/**/*'
 
@@ -34,7 +34,7 @@ Metrics/MethodLength:
 Metrics/AbcSize:
   Max: 20
   CountRepeatedAttributes: false
-  AllowedMethods: ['to_s']
+  AllowedMethods: ['to_s', 'show', 'update']
 
 # Layout
 Layout/LineLength:

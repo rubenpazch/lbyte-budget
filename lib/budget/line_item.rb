@@ -24,7 +24,8 @@ module Budget
     # Get category in Spanish
     # @return [String] Category name in Spanish
     def category_name
-      {\n        'lente' => 'Lente',
+      {
+        'lente' => 'Lente',
         'montura' => 'Montura',
         'tratamiento' => 'Tratamiento',
         'accesorio' => 'Accesorio',
