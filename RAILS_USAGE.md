@@ -16,7 +16,7 @@ Budget is a **Rails Engine** that provides complete quote/budget management func
 ### 1. Add to Gemfile
 
 ```ruby
-gem 'budget'
+gem 'budget-quotes'
 ```
 
 ### 2. Install the Gem
@@ -207,7 +207,7 @@ puts quote
 # Cliente: María González
 # Contacto: maria@example.com
 # Fecha: 29/11/2025
-# 
+#
 # DETALLE:
 # ------------------------------------------------------------
 # 1. Lente - Lentes progresivos: $150.00
@@ -221,7 +221,7 @@ puts quote
 class QuotesController < ApplicationController
   def create
     @quote = Budget::Quote.create!(quote_params)
-    
+
     # Add items from form
     params[:line_items].each do |item|
       @quote.add_line_item(
@@ -230,23 +230,23 @@ class QuotesController < ApplicationController
         category: item[:category]
       )
     end
-    
+
     redirect_to quote_path(@quote), notice: "Quote created successfully"
   end
-  
+
   def add_payment
     @quote = Budget::Quote.find(params[:id])
     @quote.add_payment(payment_params)
-    
+
     redirect_to quote_path(@quote), notice: "Payment added"
   end
-  
+
   private
-  
+
   def quote_params
     params.require(:quote).permit(:customer_name, :customer_contact, :notes)
   end
-  
+
   def payment_params
     params.require(:payment).permit(:amount, :payment_method, :notes)
   end
@@ -281,7 +281,7 @@ end
   <p><strong>Total:</strong> <%= number_to_currency(@quote.total) %></p>
   <p><strong>Paid:</strong> <%= number_to_currency(@quote.total_paid) %></p>
   <p><strong>Balance:</strong> <%= number_to_currency(@quote.remaining_balance) %></p>
-  <p><strong>Status:</strong> 
+  <p><strong>Status:</strong>
     <span class="<%= @quote.fully_paid? ? 'paid' : 'pending' %>">
       <%= @quote.fully_paid? ? 'PAID' : 'PENDING' %>
     </span>
@@ -304,7 +304,7 @@ module Api
   class QuotesController < ApplicationController
     def show
       @quote = Budget::Quote.includes(:line_items, :payments).find(params[:id])
-      
+
       render json: {
         id: @quote.id,
         customer_name: @quote.customer_name,
@@ -348,7 +348,7 @@ Rails.application.routes.draw do
       post :add_line_item
     end
   end
-  
+
   namespace :api do
     resources :quotes, only: [:index, :show, :create]
   end
@@ -395,15 +395,15 @@ RSpec.describe Budget::Quote, type: :model do
   it "calculates total correctly" do
     quote = create(:budget_quote)
     quote.line_items.create!(description: "Test", price: 100, category: "other")
-    
+
     expect(quote.total).to eq(100)
   end
-  
+
   it "tracks payments correctly" do
     quote = create(:budget_quote)
     quote.line_items.create!(description: "Test", price: 100, category: "other")
     quote.payments.create!(amount: 50, payment_method: "efectivo")
-    
+
     expect(quote.remaining_balance).to eq(50)
     expect(quote.fully_paid?).to be false
   end

@@ -3,7 +3,7 @@
 require_relative 'lib/budget/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'budget'
+  spec.name = 'budget-quotes'
   spec.version = Budget::VERSION
   spec.authors = ['Ruben Paz Chuspe']
   spec.email = ['ruben.paz@bairesdev.com']

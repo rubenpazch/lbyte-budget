@@ -21,7 +21,7 @@ A Rails Engine for managing quotes/budgets for eyeglasses businesses (or any bus
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'budget'
+gem 'budget-quotes'
 ```
 
 And then execute:
