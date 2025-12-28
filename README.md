@@ -339,6 +339,30 @@ Run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`.
 
+## Releasing a New Version
+
+To release a new version of the gem:
+
+1. **Update the version number** in [lib/budget/version.rb](lib/budget/version.rb)
+2. **Update the CHANGELOG** in [CHANGELOG.md](CHANGELOG.md) with the new version and release notes
+3. **Build the gem**:
+   ```bash
+   gem build budget.gemspec
+   ```
+4. **Push to RubyGems** (requires authentication):
+   ```bash
+   gem push lbyte-budget-X.X.X.gem
+   ```
+   Note: You'll need to enter your OTP code if MFA is enabled.
+5. **Commit and tag the release**:
+   ```bash
+   git add lib/budget/version.rb CHANGELOG.md
+   git commit -m "Bump version to X.X.X"
+   git tag vX.X.X
+   git push origin main
+   git push origin vX.X.X
+   ```
+
 ## Testing
 
 The Budget gem includes comprehensive test coverage:
