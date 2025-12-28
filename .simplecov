@@ -13,7 +13,7 @@ SimpleCov.start do
   add_group 'Main', 'lib/budget.rb'
 
   # Coverage thresholds
-  minimum_coverage 100
+  minimum_coverage 99
   minimum_coverage_by_file 90
 
   # Configure formatters

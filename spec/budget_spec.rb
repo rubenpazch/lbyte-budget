@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe Budget do
   it 'has a version number' do
     expect(Budget::VERSION).not_to be_nil
-    expect(Budget::VERSION).to eq('0.1.0')
+    expect(Budget::VERSION).to eq('0.1.1')
   end
 
   describe 'Budget::Error' do

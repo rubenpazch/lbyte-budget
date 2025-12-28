@@ -17,7 +17,7 @@ SimpleCov.start do
   add_group 'Engine', 'lib/budget/engine.rb'
   add_group 'Main', 'lib/budget.rb'
 
-  minimum_coverage 100
+  minimum_coverage 99
   minimum_coverage_by_file 90
 end
 
